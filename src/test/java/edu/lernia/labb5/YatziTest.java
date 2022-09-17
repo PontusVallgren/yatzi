@@ -2,12 +2,7 @@ package edu.lernia.labb5;
 
 import org.junit.jupiter.api.Test;
 
-import edu.lernia.labb5.Die;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class YatziTest {
     @Test
@@ -17,6 +12,8 @@ public class YatziTest {
             die.value = 6;
         }
         //Assert something?
+        BoardGameMaterial game = new BoardGameMaterial();
+        assertEquals(true, game.isYtazi(dice));
     }
 
     @Test
@@ -27,5 +24,7 @@ public class YatziTest {
         }
         dice[5].value = 1;
         //Assert something?
+        BoardGameMaterial game = new BoardGameMaterial();
+        assertEquals(false, game.isYtazi(dice));
     }
 }

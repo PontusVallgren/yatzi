@@ -7,6 +7,10 @@ public class Die extends BoardGameMaterial {
         value = (int) Math.random();
     }
 
+    public int diceValue() {
+        return value;
+    }
+
     public int DieRoll() {
         value = (int)(Math.random()*6+1);
         return value;
