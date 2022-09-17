@@ -8,10 +8,9 @@ public class YatziTest {
     @Test
     void isYatziWhenAllDiceMatches() {
         Die[] dice = new Die[5];
-        for(Die die: dice) {
-            die.value = 6;
+        for (int diceNumber = 0; diceNumber < 5; diceNumber++) {
+            dice[diceNumber] = new Die(1);
         }
-        //Assert something?
         BoardGameMaterial game = new BoardGameMaterial();
         assertEquals(true, game.isYtazi(dice));
     }
@@ -19,12 +18,16 @@ public class YatziTest {
     @Test
     void isNotYatziWhenOneDieIsNotMatchingTheOther() {
         Die[] dice = new Die[5];
-        for(Die die: dice) {
-            die.value = 6;
+        for (int diceNumber = 0; diceNumber < 5; diceNumber++) {
+            dice[diceNumber] = new Die(2);
         }
-        dice[5].value = 1;
+        dice[2].setValue(4);
         //Assert something?
         BoardGameMaterial game = new BoardGameMaterial();
         assertEquals(false, game.isYtazi(dice));
     }
 }
+
+//         for(Die die: dice) {
+//            die.value = 6;
+//        }

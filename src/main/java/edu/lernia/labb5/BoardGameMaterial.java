@@ -3,7 +3,6 @@ package edu.lernia.labb5;
 import java.util.Scanner;
 
 public class BoardGameMaterial {
-    /* Will be used to store all boardgamematerials in one class */
 
     public static Die[] dice;
     int numberOfGameRounds;
@@ -15,7 +14,7 @@ public class BoardGameMaterial {
         for (int diceNumber = 0; diceNumber < 5; diceNumber++) {
             dice[diceNumber] = new Die();
         }
-        //We will continue until the game is over
+
         System.out.println("Welcome to Yatzi!");
             while (numberOfGameRounds <= maxRounds) {
                 newTurn();
@@ -33,7 +32,6 @@ public class BoardGameMaterial {
         System.out.println("Starting turn " + (numberOfGameRounds + 1) + " of 3, rolling dice.");
         for (int diceNumber = 0; diceNumber < dice.length; diceNumber++) {
             dice[diceNumber].DieRoll();
-            //ds[i].value = 5; //Test if yatzi work
             System.out.println(diceNumber + ": " + dice[diceNumber].getString());
         }
     }
@@ -41,8 +39,7 @@ public class BoardGameMaterial {
     public boolean isYtazi(Die[] dice) {
         boolean gameWon = true;
         for (int diceNumber = 1; diceNumber < 5; diceNumber++) {
-            if (dice[diceNumber].value != dice[diceNumber - 1].value) {
-                //Set flag to false
+            if (dice[diceNumber].diceValue() != dice[diceNumber - 1].diceValue()) {
                 gameWon = false;
             }
         }
